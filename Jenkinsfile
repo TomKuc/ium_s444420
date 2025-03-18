@@ -16,7 +16,7 @@ pipeline {
             steps {
                 copyArtifacts(
                     fingerprintArtifacts: true, 
-                    projectName: 's444420-create-dataset', 
+                    projectName: 'z-s444420-create-dataset',
                     selector: buildParameter('BUILD_SELECTOR')
                 )
             }
