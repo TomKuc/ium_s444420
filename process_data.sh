@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INPUT_FILE=$1
+INPUT_FILE="final_data.csv"
 
 if [ ! -f "$INPUT_FILE" ]; then
     echo "Error: File $INPUT_FILE not found!" > stats_result.txt
