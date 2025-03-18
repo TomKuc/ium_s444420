@@ -16,3 +16,4 @@ shuf data.csv | head -n "$CUTOFF" > processed_data.csv
 cut -d ',' -f1,2,4 processed_data.csv > final_data.csv
 
 echo "Data processing complete. Output saved in final_data.csv."
+
