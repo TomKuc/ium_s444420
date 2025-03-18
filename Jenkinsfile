@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'BUILD_SELECTOR', defaultValue: 'lastSuccessful', description: 'Wybierz build do skopiowania artefaktów')
-    }
-
     stages {
         stage('Checkout Repository') {
             steps {
@@ -16,8 +12,8 @@ pipeline {
             steps {
                 copyArtifacts(
                     fingerprintArtifacts: true, 
-                    projectName: 'z-s444420-create-dataset',
-                    selector: buildParameter('BUILD_SELECTOR')
+                    projectName: 'z-s444420-create-dataset', 
+                    selector: lastSuccessful()
                 )
             }
         }
