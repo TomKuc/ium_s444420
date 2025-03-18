@@ -14,7 +14,7 @@ pipeline {
 
         stage('Run Shell Script') {
             steps {
-                sh "./process_data.sh $CUTOFF"
+                sh "bash process_data.sh ${params.CUTOFF}"
             }
         }
 

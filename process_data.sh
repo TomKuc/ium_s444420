@@ -1,10 +1,6 @@
 #!/bin/bash
 
-CUTOFF=$1
-
-if [ -z "$CUTOFF" ]; then
-  CUTOFF=3
-fi
+CUTOFF=${1:-3}
 
 echo "Using CUTOFF value: $CUTOFF"
 
