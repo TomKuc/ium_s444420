@@ -1,9 +1,21 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('Checkout Repository') {
             steps {
-                echo 'Hello world!' 
+                checkout scm
+            }
+        }
+        
+        stage('Run Shell Script') {
+            steps {
+                sh './process_data.sh'
+            }
+        }
+        
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'final_data.csv', fingerprint: true
             }
         }
     }
