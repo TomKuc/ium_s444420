@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'BUILD_SELECTOR', defaultValue: 'lastSuccessful', description: 'Wybierz build do skopiowania artefaktów')
+    }
+
+    stages {
+        stage('Checkout Repository') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Copy Dataset Artifact') {
+            steps {
+                dir('s444420-dataset-stats') {  // <- Nowa ścieżka!
+                    copyArtifacts(
+                        fingerprintArtifacts: true, 
+                        projectName: 's444420-create-dataset', 
+                        selector: buildParameter('BUILD_SELECTOR')
+                    )
+                }
+            }
+        }
+
+        stage('Run Statistics Script') {
+            steps {
+                dir('s444420-dataset-stats') {
+                    sh "bash stats_script.sh final_data.csv"
+                }
+            }
+        }
+
+        stage('Archive Statistics') {
+            steps {
+                dir('s444420-dataset-stats') {
+                    archiveArtifacts artifacts: 'stats_result.txt', fingerprint: true
+                }
+            }
+        }
+    }
+}
