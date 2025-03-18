@@ -1,18 +1,13 @@
 #!/bin/bash
 
-CUTOFF=${1:-3}
+INPUT_FILE=$1
 
-echo "Using CUTOFF value: $CUTOFF"
+if [ ! -f "$INPUT_FILE" ]; then
+    echo "Error: File $INPUT_FILE not found!" > stats_result.txt
+    exit 1
+fi
 
-echo "id,name,age,salary" > data.csv
-echo "1,Alice,30,5000" >> data.csv
-echo "2,Bob,25,4500" >> data.csv
-echo "3,Charlie,35,6000" >> data.csv
-echo "4,David,40,7000" >> data.csv
-echo "5,Emma,28,5200" >> data.csv
+LINES=$(tail -n +2 "$INPUT_FILE" | wc -l)
 
-shuf data.csv | head -n "$CUTOFF" > processed_data.csv
-
-cut -d ',' -f1,2,4 processed_data.csv > final_data.csv
-
-echo "Data processing complete. Output saved in final_data.csv."
+echo "Liczba rekordów w zbiorze: $LINES" > stats_result.txt
+echo "Statystyki zapisane w stats_result.txt"

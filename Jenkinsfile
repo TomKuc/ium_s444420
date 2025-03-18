@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'CUTOFF', defaultValue: '3', description: 'Liczba pierwszych/losowych przykładów do wybrania')
+        string(name: 'BUILD_SELECTOR', defaultValue: 'lastSuccessful', description: 'Wybierz build do skopiowania artefaktów')
     }
 
     stages {
@@ -12,15 +12,25 @@ pipeline {
             }
         }
 
-        stage('Run Shell Script') {
+        stage('Copy Dataset Artifact') {
             steps {
-                sh "bash process_data.sh ${params.CUTOFF}"
+                copyArtifacts(
+                    fingerprintArtifacts: true, 
+                    projectName: 's444420-create-dataset', 
+                    selector: buildParameter('BUILD_SELECTOR')
+                )
             }
         }
 
-        stage('Archive Artifacts') {
+        stage('Run Statistics Script') {
             steps {
-                archiveArtifacts artifacts: 'final_data.csv', fingerprint: true
+                sh "bash stats_script.sh final_data.csv"
+            }
+        }
+
+        stage('Archive Statistics') {
+            steps {
+                archiveArtifacts artifacts: 'stats_result.txt', fingerprint: true
             }
         }
     }
