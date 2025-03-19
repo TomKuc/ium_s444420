@@ -4,29 +4,39 @@ pipeline {
     stages {
         stage('Checkout Repository') {
             steps {
-                git branch: 's444420-create-dataset-docker', url: 'https://github.com/TomKuc/ium_s444420.git'
+                checkout scm
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Copy Dataset Artifact') {
+            steps {
+                copyArtifacts(
+                    fingerprintArtifacts: true, 
+                    projectName: 'z-s444420-create-dataset', 
+                    selector: lastSuccessful()
+                )
+            }
+        }
+
+        stage('Pull Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t dataset-processor .'
+                    sh 'docker pull ubuntu:latest'
                 }
             }
         }
 
-        stage('Run Container') {
+        stage('Run Statistics Script in Container') {
             steps {
                 script {
-                    sh 'docker run --rm -v $(pwd):/app dataset-processor'
+                    sh 'docker run --rm -v $(pwd):/app -w /app ubuntu:latest bash stats_script.sh final_data.csv'
                 }
             }
         }
 
-        stage('Archive Processed Data') {
+        stage('Archive Statistics') {
             steps {
-                archiveArtifacts artifacts: 'final_data.csv', fingerprint: true
+                archiveArtifacts artifacts: 'stats_result.txt', fingerprint: true
             }
         }
     }
