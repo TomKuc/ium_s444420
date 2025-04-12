@@ -1,0 +1,10 @@
+DatasetDict({
+    train: Dataset({
+        features: ['text', 'label'],
+        num_rows: 120000
+    })
+    test: Dataset({
+        features: ['text', 'label'],
+        num_rows: 7600
+    })
+})

@@ -1,0 +1,82 @@
+{
+  "artifacts": [
+    "ag_model.joblib"
+  ],
+  "command": "train",
+  "experiment": {
+    "base_dir": "/Users/tomaszkuczynski/Studia/inzynieria/jankins_git/imu_07",
+    "dependencies": [
+      "datasets==3.3.2",
+      "joblib==1.4.2",
+      "numpy==1.26.4",
+      "sacred==0.8.7"
+    ],
+    "mainfile": "imu_07.py",
+    "name": "ag_news_classifier",
+    "repositories": [
+      {
+        "commit": "5be81d3b4e9fe73441e1358400f5e2f36060e09a",
+        "dirty": false,
+        "url": "https://github.com/TomKuc/ium_s444420.git"
+      }
+    ],
+    "sources": [
+      [
+        "imu_07.py",
+        "_sources/imu_07_82536b1f3fe1fe1e9e3255bf26618ab6.py"
+      ]
+    ]
+  },
+  "heartbeat": "2025-04-12T06:29:12.123242",
+  "host": {
+    "ENV": {},
+    "cpu": "Apple M4 Pro",
+    "hostname": "MacBook-Pro-Tomasz.local",
+    "os": [
+      "Darwin",
+      "macOS-15.2-arm64-arm-64bit"
+    ],
+    "python_version": "3.11.11"
+  },
+  "meta": {
+    "command": "train",
+    "config_updates": {},
+    "named_configs": [],
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--id": null,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [],
+      "help": false,
+      "with": false
+    }
+  },
+  "resources": [
+    [
+      "/Users/tomaszkuczynski/Studia/inzynieria/jankins_git/imu_07/dataset_info.txt",
+      "sacred_runs/_resources/dataset_info_0829e15e29ae845c44dd0e2e0d76ffe8.txt"
+    ]
+  ],
+  "result": null,
+  "start_time": "2025-04-12T06:28:49.306660",
+  "status": "COMPLETED",
+  "stop_time": "2025-04-12T06:29:10.118684"
+}

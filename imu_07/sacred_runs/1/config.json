@@ -1,0 +1,8 @@
+{
+  "hidden_units": 100,
+  "max_features": 5000,
+  "max_iter": 10,
+  "model_output": "ag_model.joblib",
+  "random_state": 42,
+  "seed": 34310569
+}

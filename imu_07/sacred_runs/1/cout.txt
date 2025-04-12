@@ -1,0 +1,6 @@
+INFO - ag_news_classifier - Running command 'train'
+INFO - ag_news_classifier - Started run with ID "1"
+/opt/anaconda3/envs/core/lib/python3.11/site-packages/sklearn/neural_network/_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (10) reached and the optimization hasn't converged yet.
+  warnings.warn(
+0.9022916666666667
+INFO - ag_news_classifier - Completed after 0:00:21
