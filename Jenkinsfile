@@ -23,7 +23,7 @@ pipeline {
         stage('Run experiment') {
             steps {
                 sh '''
-                python3 train.py
+                python3 imu_07/imu_07.py
                 '''
             }
         }
