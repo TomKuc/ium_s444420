@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/tomaszkuczynski/Studia/inzynieria/jankins_git/imu_08/mlruns/0/36533fe6dd1c4faf977becf7446ce94c/artifacts
+end_time: 1744464003875
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 36533fe6dd1c4faf977becf7446ce94c
+run_name: chill-crab-514
+run_uuid: 36533fe6dd1c4faf977becf7446ce94c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744463981577
+status: 3
+tags: []
+user_id: tomaszkuczynski

@@ -1,0 +1,12 @@
+name: agnews_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - scikit-learn
+  - pip
+  - pip:
+    - datasets
+    - mlflow
+    - joblib
