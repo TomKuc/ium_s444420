@@ -1,0 +1,5 @@
+outs:
+- md5: dd612bf48949662116a3ebbeace9d122
+  size: 16206348
+  hash: md5
+  path: ag_news_model.joblib

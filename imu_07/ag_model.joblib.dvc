@@ -1,0 +1,5 @@
+outs:
+- md5: b89a9ce27cf92ac7e80a8a0f5586f36c
+  size: 16203708
+  hash: md5
+  path: ag_model.joblib

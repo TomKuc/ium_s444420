@@ -1,0 +1,5 @@
+outs:
+- md5: 492037368bb66ffbb16c42171abbb9d9
+  size: 16203708
+  hash: md5
+  path: mlp_model.joblib
